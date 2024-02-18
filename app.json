@@ -25,6 +25,25 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Tele-Regular.otf",
+            {
+              "asset": "node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialIcons.ttf"
+            }
+          ]
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "bd1ebd35-bf15-4229-acbd-eba6060c37d4"
+      }
+    },
+    "owner": "anish-aby"
   }
 }
