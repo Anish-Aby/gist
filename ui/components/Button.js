@@ -1,31 +1,39 @@
-import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Text,
+  Pressable,
+} from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useRouter } from "expo-router";
 
-export default function CustomButton({ type, content, icon }) {
+export default function CustomButton({ type, content, icon, onPress }) {
+  const router = useRouter();
+
   return (
     <TouchableOpacity
-      onPress={() => {
-        /* do this */
-      }}
+      onPress={onPress}
+      style={type === "primary" ? styles.primary : styles.secondary}
     >
-      <View style={type === "primary" ? styles.primary : styles.secondary}>
+      <Text>
         {icon === "google" ? (
           <FontAwesome name="google" color={"black"} size={20} />
         ) : (
           <Ionicons name="mail-outline" color={"white"} size={20} />
         )}
+      </Text>
 
-        <Text
-          style={
-            type === "primary"
-              ? styles.textColorPrimary
-              : styles.textColorSecondary
-          }
-        >
-          {content}
-        </Text>
-      </View>
+      <Text
+        style={
+          type === "primary"
+            ? styles.textColorPrimary
+            : styles.textColorSecondary
+        }
+      >
+        {content}
+      </Text>
     </TouchableOpacity>
   );
 }

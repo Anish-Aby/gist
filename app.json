@@ -15,13 +15,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anishaby.gist"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anishaby.gist"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -37,13 +39,20 @@
             }
           ]
         }
-      ]
+      ],
+      "expo-router"
     ],
     "extra": {
       "eas": {
         "projectId": "bd1ebd35-bf15-4229-acbd-eba6060c37d4"
       }
     },
-    "owner": "anish-aby"
+    "owner": "anish-aby",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/bd1ebd35-bf15-4229-acbd-eba6060c37d4"
+    }
   }
 }
