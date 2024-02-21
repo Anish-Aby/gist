@@ -1,12 +1,10 @@
 import { useCallback } from "react";
-import { StyleSheet, SafeAreaView, View, Text, StatusBar } from "react-native";
-import Logo from "./../ui/icons/Logo";
+import { StyleSheet, SafeAreaView, View, Text } from "react-native";
 import Box from "./../ui/components/Box";
 import CustomButton from "./../ui/components/Button";
-import Constants from "expo-constants";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import { Platform } from "react-native";
+import LogoFeed from "../ui/icons/LogoFeed";
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -27,61 +25,68 @@ export default function App() {
   return (
     <SafeAreaView style={styles.mainContainer} onLayout={onLayoutRootView}>
       <View style={styles.logoContainer}>
-        <Logo />
+        <LogoFeed />
       </View>
-      <View style={styles.container}>
-        <Box
-          content={"Write out your thoughts & share it with the world"}
-          isFirst={true}
-        />
-      </View>
-      <View style={styles.buttonContainer}>
-        <CustomButton
-          type={"primary"}
-          content={"continue with google"}
-          icon={"google"}
-        />
-        <CustomButton
-          type={"secondary"}
-          content={"login with email"}
-          icon={"email"}
-        />
-        <Text style={styles.footer}>
-          By creating an account you agree with our Terms of Service, Privacy
-          Policy, and our default Notification Settings.
-        </Text>
+      <View style={styles.categoryContainer}>
+        <View style={styles.categoryButton}>
+          <Text style={styles.categoryText}>For you</Text>
+        </View>
+        <View style={styles.categoryButton2}>
+          <Text style={styles.categoryText}>Following</Text>
+        </View>
       </View>
     </SafeAreaView>
   );
 }
 
-const topPadding =
-  Platform.OS === "android"
-    ? Constants.statusBarHeight + 60
-    : Constants.statusBarHeight;
-
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     width: "100%",
-    gap: 5,
-    padding: 0,
     backgroundColor: "#FFF4E8",
-    justifyContent: "space-between",
     paddingBottom: 50,
   },
 
   logoContainer: {
-    paddingTop: topPadding,
     display: "flex",
     width: "100%",
     alignItems: "center",
+    paddingVertical: 15,
+    borderColor: "#191718",
+    borderBottomWidth: 1,
   },
 
-  container: {
+  categoryContainer: {
     display: "flex",
+    flexDirection: "row",
     width: "100%",
+    height: 65,
     alignItems: "center",
+    borderBottomWidth: 1,
+  },
+
+  categoryButton: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "50%",
+    height: "100%",
+    borderRightWidth: 1,
+    backgroundColor: "#FFC900",
+  },
+
+  categoryButton2: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "50%",
+    height: "100%",
+  },
+
+  categoryText: {
+    fontSize: 16,
+    fontFamily: "TeleRegular",
+    lineHeight: 16,
   },
 
   buttonContainer: {
